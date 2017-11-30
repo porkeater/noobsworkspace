@@ -1,5 +1,7 @@
 package firstshop.com.service;
 
-public interface ProductService {
+import firstshop.com.entity.Product;
 
+public interface ProductService {
+	void add(Product product);
 }

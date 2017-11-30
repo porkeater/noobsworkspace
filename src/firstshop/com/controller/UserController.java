@@ -40,7 +40,7 @@ public class UserController {
 		public String login(@RequestParam("email") String email,@RequestParam("password") String password,Model model,HttpSession session) {
 			User user = this.userServiceImpl.login(email, password);
 			if(user != null) {
-				session.setAttribute("email", email);
+				session.setAttribute("username", user.getUsername());
 				return "index";
 			}else {
 				System.out.println("notfound");

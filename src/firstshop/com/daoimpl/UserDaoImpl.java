@@ -27,6 +27,7 @@ public class UserDaoImpl implements UserDao{
 		
 		session.save(user);
 		tx.commit();
+		session.close();
 		
 	}
 	

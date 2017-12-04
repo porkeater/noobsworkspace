@@ -1,5 +1,7 @@
 package firstshop.com.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -21,10 +23,17 @@ public class ProductController {
 	public String addProduct(@RequestParam("productname") String productname,@RequestParam("price") int price,Model model,HttpSession session) {
 		
 		Product product = new Product();
-		product.setName(productname);
+		product.setProductname(productname);
 		product.setPrice(price);
 		this.productServiceImpl.add(product);
 		return "complete";
+	}
+	
+	@RequestMapping(value = "/findall")
+	public String findAll(Model model,HttpSession session) {
+		List<Product> list = this.productServiceImpl.findAll();
+		session.setAttribute("products", list);
+		return "findall";
 	}
 	
 }

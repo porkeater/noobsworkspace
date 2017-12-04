@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>修改成功</h1>
-	<a href = "controll.jsp">点此返回</a>
+	<a href = "backstage.jsp">点此返回</a>
 </body>
 </html>

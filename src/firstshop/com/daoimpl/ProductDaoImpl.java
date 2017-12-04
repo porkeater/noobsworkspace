@@ -24,7 +24,7 @@ public class ProductDaoImpl implements ProductDao{
 	
 	@Override
 	public List<Product> findAll() {
-		List<Product> list = sessionFactory.openSession().createQuery("from product").list();
+		List<Product> list = sessionFactory.openSession().createQuery("from Product").list();
 		return list;
 	}
 

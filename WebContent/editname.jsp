@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href = "controll.jsp">新增商品</a>
-	<form action = "/firstshop/findall" method = "post">
-		<input type = "submit" value = "查看所有商品"/>
+	<form action = "/firstshop/editname" method = "post">
+		请输入要修改的名称：<input type = "text" name = "productname"/>
+		<input type = "submit" value = "确定"/>
 	</form>
 </body>
 </html>

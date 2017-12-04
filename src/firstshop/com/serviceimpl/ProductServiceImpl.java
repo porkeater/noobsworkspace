@@ -1,5 +1,7 @@
 package firstshop.com.serviceimpl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +26,12 @@ public class ProductServiceImpl implements ProductService{
 		this.productDaoImpl.add(product);
 		
 	}
+
+	@Override
+	public List<Product> findAll() {
+		return this.productDaoImpl.findAll();
+	}
+
+	
 
 }

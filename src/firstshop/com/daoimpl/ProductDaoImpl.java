@@ -21,18 +21,14 @@ public class ProductDaoImpl implements ProductDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+	//查询全部
 	@Override
 	public List<Product> findAll() {
 		List<Product> list = sessionFactory.openSession().createQuery("from Product").list();
 		return list;
 	}
 
-	@Override
-	public List<Product> findByPage() {
-		return null;
-	}
-
+	//增加商品
 	@Override
 	public void add(Product product) {
 		Session session = sessionFactory.openSession();
@@ -42,6 +38,35 @@ public class ProductDaoImpl implements ProductDao{
 		tx.commit();
 		session.close();
 		
+	}
+
+	//通过id查找
+	@Override
+	public Product findById(int id) {
+		String hql = "from Product where id = ?";
+		Product product =  (Product) sessionFactory.openSession().createQuery(hql).setParameter(0, id).uniqueResult();
+		return product;
+		
+	}
+	//更新商品名
+	@Override
+	public void changeName(Product product, String name) {
+		String hql = "update Product set productname = ? where id = ?";
+		int ret = sessionFactory.openSession().createQuery(hql).setParameter(0, name).setParameter(1, product.getId()).executeUpdate();
+	}
+
+	//更新商品价格
+	@Override
+	public void changePrice(Product product, int price) {
+		String hql = "update Product set price = ? where id = ?";
+		int ret = sessionFactory.openSession().createQuery(hql).setParameter(0, price).setParameter(1, product.getId()).executeUpdate();
+		
+	}
+	//删除商品
+	@Override
+	public void delete(int id) {
+		String hql = "delete from Product where id = ?";
+		int ret = sessionFactory.openSession().createQuery(hql).setParameter(0, id).executeUpdate();
 	}
 
 }

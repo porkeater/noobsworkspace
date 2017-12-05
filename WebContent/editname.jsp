@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
 	<form action = "/firstshop/editname" method = "post">
+		请输入你要修改的产品的id(预设值为您所点击的产品的id)：<input type = "text" name = "id" value = "${param.id}"/></br>
 		请输入要修改的名称：<input type = "text" name = "productname"/>
 		<input type = "submit" value = "确定"/>
 	</form>

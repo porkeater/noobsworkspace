@@ -8,7 +8,8 @@
 </head>
 <body>
 	<form action = "/firstshop/editprice" method = "post">
-		请输入要修改的价格：<input type = "text" name = "productprice"/>
+		请输入你要修改的产品的id(预设值为您所点击的产品的id)：<input type = "text" name = "id" value = "${param.id}"/></br>
+		请输入要修改的价格：<input type = "text" name = "price"/>
 		<input type = "submit" value = "确定"/>
 	</form>
 </body>

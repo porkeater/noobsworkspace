@@ -28,12 +28,32 @@ public class ProductController {
 		this.productServiceImpl.add(product);
 		return "complete";
 	}
-	
+	//查找全部
 	@RequestMapping(value = "/findall")
 	public String findAll(Model model,HttpSession session) {
 		List<Product> list = this.productServiceImpl.findAll();
 		session.setAttribute("products", list);
 		return "findall";
 	}
+	//修改名称
+	@RequestMapping(value = "/editname")
+	public String editName(@RequestParam("id") int id,@RequestParam("productname") String productname,Model model,HttpSession session) {
+		this.productServiceImpl.changeName(id, productname);
+		
+		return "complete";
+	}
+	//修改价格
+	@RequestMapping(value = "/editprice")
+	public String editPrice(@RequestParam("id") int id,@RequestParam("price") int price,Model model,HttpSession session) {
+		this.productServiceImpl.changePrice(id, price);
+		
+		return "complete";
+	}
 	
+	//删除商品
+	@RequestMapping(value = "/delete")
+	public String delete(@RequestParam("id") int id,Model model,HttpSession session) {
+		this.productServiceImpl.delete(id);
+		return "complete";
+	}
 }

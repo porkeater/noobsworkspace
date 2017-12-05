@@ -32,6 +32,26 @@ public class ProductServiceImpl implements ProductService{
 		return this.productDaoImpl.findAll();
 	}
 
+	@Override
+	public void changeName(int id,String name) {
+		Product product = this.productDaoImpl.findById(id);
+		this.productDaoImpl.changeName(product, name);
+		
+	}
+
+	@Override
+	public void changePrice(int id, int price) {
+		Product product = this.productDaoImpl.findById(id);
+		this.productDaoImpl.changePrice(product, price);
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.productDaoImpl.delete(id);
+		
+	}
+
 	
 
 }

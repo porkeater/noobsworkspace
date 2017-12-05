@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import firstshop.com.entity.User;
-import firstshop.com.service.UserService;
 import firstshop.com.serviceimpl.UserServiceImpl;
 
 @Controller

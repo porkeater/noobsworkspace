@@ -1,9 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<title>Home</title>
+<title>Products</title>
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,6 +13,7 @@
 <!-- //Custom Theme files -->
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
@@ -19,6 +21,17 @@
 <!-- cart -->
 <script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+		<script type="text/javascript" id="sourcecode">
+			$(function()
+			{
+				$('.scroll-pane').jScrollPane();
+			});
+		</script>
+<!-- //the jScrollPane script -->
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<!-- the mousewheel plugin -->		
 </head>
 <body>
 	<!--header-->
@@ -251,7 +264,7 @@
 				<div class="header-right login">
 					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 					<div id="loginBox">                
-						<form id="loginForm" action = "/firstshop/login" method = "post">	
+						<form id="loginForm">
 							<fieldset id="body">
 								<fieldset>
 									<label for="email">Email Address</label>
@@ -284,288 +297,232 @@
 		</div>
 	</div>
 	<!--//header-->
-	<!--banner-->
-	<div class="banner">
+	<!--products-->
+	<div class="products">	 
 		<div class="container">
-			<h2 class="hdng">Yummy <span>Cakes</span> for u</h2>
-			<p>Our best cakes make your day special</p>
-			<a href="/firstshop/showall">SHOP NOW</a>
-			<div class="banner-text">			
-				<img src="images/2.png" alt=""/>	
-			</div>
-		</div>
-	</div>			
-	<!--//banner-->
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
-	<!--gallery-->
-	<div class="gallery">
-		<div class="container">
-			<div class="gallery-grids">
-				<div class="col-md-8 gallery-grid glry-one">
-					<a href="products.html"><img src="images/g1.jpg" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
+			<h2>Our Products</h2>			
+			<div class="col-md-9 product-model-sec">
+			<c:forEach items = "${products}" var = "p">	
+				<div class="product-grid">
+					<a href="single.html">				
+						<div class="more-product"><span> </span></div>						
+						<div class="product-img b-link-stripe b-animate-go  thickbox">
+							<img src="images/m1.png" class="img-responsive" alt="">
+							<div class="b-wrapper">
+								<h4 class="b-animate b-from-left  b-delay03">							
+									<button>View</button>
+								</h4>
+							</div>
 						</div>
 					</a>
-					<div class="galy-info">
-						<p>葬礼蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
+								
+					<div class="product-info simpleCart_shelfItem">
+						<div class="product-info-cust prt_name">
+							<h4>${p.productname}</h4>								
+							<span class="item_price">${p.price}</span>
+							<div class="ofr">
+								
 							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid glry-two">
-					<a href="products.html"><img src="images/g2.jpg" class="img-responsive" alt=""/>
-						<div class="gallery-info galrr-info-two">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
+							<input type="text" class="item_quantity" value="1" />
+							<input type="button" class="item_add items" value="Add">
 							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>玫瑰花蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
+						</div>												
 					</div>
 				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g3.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>穆斯林婚礼蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g4.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>豪华葬礼蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$395.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g5.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>白色清明节</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g6.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>小熊盒子</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g7.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>生日快乐蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g8.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>黑人婚礼蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g9.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>同性恋婚礼蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><img src="images/g10.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>巧克力香烟蛋糕</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">$95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
+			</c:forEach>
+				
 			</div>	
+			<div class="col-md-3 rsidebar span_1_of_left">
+				<section  class="sky-form">
+					<div class="product_right">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
+						<div class="tab1">
+							<ul class="place">								
+								<li class="sort">Regular Cakes</li>
+								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>								
+							</ul>
+							<div class="clearfix"> </div>
+							<div class="single-bottom">						
+								<a href="#"><p>Cassata</p></a>
+								<a href="#"><p>Cheesecake</p></a>
+								<a href="#"><p>Coconut cake</p></a>
+								<a href="#"><p>Cupcake</p></a>
+						    </div>
+					    </div>						  
+						<div class="tab2">
+							<ul class="place">								
+								<li class="sort">Special Cakes</li>
+								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>
+							</ul>
+							<div class="clearfix"> </div>
+							<div class="single-bottom">						
+								<a href="#"><p>Delicious Cakes</p></a>
+								<a href="#"><p>Gingerbread</p></a>									
+						    </div>
+					    </div>
+						<div class="tab3">
+							<ul class="place">								
+								<li class="sort">Eggless Cake</li>
+								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>
+							</ul>
+							<div class="clearfix"> </div>
+							<div class="single-bottom">						
+								<a href="#"><p>Milk Cakes</p></a>
+								<a href="#"><p>Fruits Cakes</p></a>
+						    </div>
+					    </div>
+						<div class="tab4">
+							<ul class="place">								
+								<li class="sort">2-3 Tier Cakes</li>
+								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>
+							</ul>
+							<div class="clearfix"> </div>
+							<div class="single-bottom">						
+								<a href="#"><p>Twist 4 tier</p></a>
+								<a href="#"><p>Floral Tier</p></a>
+								<a href="#"><p>Double Heartshape</p></a>
+						    </div>
+					    </div>
+						<!--script-->
+						<script>
+							$(document).ready(function(){
+								$(".tab1 .single-bottom").hide();
+								$(".tab2 .single-bottom").hide();
+								$(".tab3 .single-bottom").hide();
+								$(".tab4 .single-bottom").hide();
+								$(".tab5 .single-bottom").hide();
+								
+								$(".tab1 ul").click(function(){
+									$(".tab1 .single-bottom").slideToggle(300);
+									$(".tab2 .single-bottom").hide();
+									$(".tab3 .single-bottom").hide();
+									$(".tab4 .single-bottom").hide();
+									$(".tab5 .single-bottom").hide();
+								})
+								$(".tab2 ul").click(function(){
+									$(".tab2 .single-bottom").slideToggle(300);
+									$(".tab1 .single-bottom").hide();
+									$(".tab3 .single-bottom").hide();
+									$(".tab4 .single-bottom").hide();
+									$(".tab5 .single-bottom").hide();
+								})
+								$(".tab3 ul").click(function(){
+									$(".tab3 .single-bottom").slideToggle(300);
+									$(".tab4 .single-bottom").hide();
+									$(".tab5 .single-bottom").hide();
+									$(".tab2 .single-bottom").hide();
+									$(".tab1 .single-bottom").hide();
+								})
+								$(".tab4 ul").click(function(){
+									$(".tab4 .single-bottom").slideToggle(300);
+									$(".tab5 .single-bottom").hide();
+									$(".tab3 .single-bottom").hide();
+									$(".tab2 .single-bottom").hide();
+									$(".tab1 .single-bottom").hide();
+								})	
+								$(".tab5 ul").click(function(){
+									$(".tab5 .single-bottom").slideToggle(300);
+									$(".tab4 .single-bottom").hide();
+									$(".tab3 .single-bottom").hide();
+									$(".tab2 .single-bottom").hide();
+									$(".tab1 .single-bottom").hide();
+								})	
+							});
+						</script>
+						<!--//script -->	
+					</div>
+				</section>
+				<section  class="sky-form">
+					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
+					<div class="row row1 scroll-pane">
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+						</div>
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>70% - 60% (5)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>50% - 40% (7)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (2)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (5)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+						</div>
+					</div>
+				</section>  				 
+				<section  class="sky-form">
+					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
+					<ul class="dropdown-menu1">
+						<li><a href="">								               
+							<div id="slider-range"></div>							
+							<input type="text" id="amount" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
+							</a></li>			
+					</ul>
+				</section>
+				<!---->
+				<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+				<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+					<script type='text/javascript'>//<![CDATA[ 
+						$(window).load(function(){
+						 $( "#slider-range" ).slider({
+									range: true,
+									min: 0,
+									max: 100000,
+									values: [ 500, 100000 ],
+									slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+									}
+						 });
+						$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+						});//]]> 
+					</script>
+				<!---->
+				<section  class="sky-form">
+					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>By Flavour</h4>
+					<div class="row row1 scroll-pane">
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Vanilla</label>			
+						</div>
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Chocolate</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Butterscotch</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Strawberry</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Black Forest</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Mixed Fruit</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Honey</label>
+						</div>
+					</div>
+				</section>
+				<section  class="sky-form">
+					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Weight</h4>
+					<div class="row row1 scroll-pane">
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Half KG</label>
+						</div>		
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>One KG</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>TwO KG</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>More</label>
+						</div>
+					</div>
+				</section>	
+				<section  class="sky-form">
+					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Color</h4>
+					<div class="row row1 scroll-pane">
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>White</label>
+						</div>
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Pink</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Gold</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Silver</label>
+						</div>
+					</div>
+				</section>			 
+			</div>
+			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!--//gallery-->
-	<!--subscribe-->
-	<div class="subscribe">
-		 <div class="container">
-			 <h3>Newsletter</h3>
-			 <form>
-				 <input type="text" class="text" value="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}">
-				 <input type="submit" value="Subscribe">
-			 </form>
-		 </div>
-	</div>
-	<!--//subscribe-->
+	<!--//products-->
 	<!--footer-->
 	<div class="footer">
 		<div class="container">

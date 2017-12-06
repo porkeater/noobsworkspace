@@ -35,6 +35,13 @@ public class ProductController {
 		session.setAttribute("products", list);
 		return "findall";
 	}
+	//前台显示
+	@RequestMapping(value = "/showall")
+	public String showAll(Model model,HttpSession session) {
+		List<Product> list = this.productServiceImpl.findAll();
+		session.setAttribute("products", list);
+		return "products";
+	}
 	//修改名称
 	@RequestMapping(value = "/editname")
 	public String editName(@RequestParam("id") int id,@RequestParam("productname") String productname,Model model,HttpSession session) {

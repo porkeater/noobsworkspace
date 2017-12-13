@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService{
 	public void saveUser(User user) {
 		this.userDaoImpl.saveUser(user);
 		
-	}
+	} 
 
 	@Override
 	public User login(String email, String password) {

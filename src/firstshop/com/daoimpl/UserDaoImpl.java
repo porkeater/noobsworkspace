@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import firstshop.com.dao.UserDao;
+import firstshop.com.entity.Product;
 import firstshop.com.entity.User;
 
 
@@ -33,8 +34,8 @@ public class UserDaoImpl implements UserDao{
 	
 	@Override
 	public User findByEmail(String email) {
-		Session session = sessionFactory.openSession();
-		User user = session.get(User.class,email);
+		String hql = "from User where email = ?";
+		User user =  (User) sessionFactory.openSession().createQuery(hql).setParameter(0, email).uniqueResult();
 		return user;
 		
 	}

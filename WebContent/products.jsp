@@ -324,7 +324,7 @@
 								
 							</div>
 							<input type="text" class="item_quantity" value="1" />
-							<input type="button" class="item_add items" value="Add">
+							<a href = "/firstshop/addcart?id=${p.id}"><input type="button" class="item_add items" value="Add"></a>
 							<div class="clearfix"> </div>
 						</div>												
 					</div>

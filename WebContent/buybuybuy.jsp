@@ -8,18 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>购物车</h1>
 	<c:forEach items = "${cart.container}" var = "c">
 		<tr>
 			<td>商品名称:</td><td>${c.value.product.productname}</td>
 			<td>商品数量：</td><td>${c.value.count}</td>
 			<td>商品单价：</td><td>${c.value.product.price}</td>
 			<td>产品价格：</td><td>${c.value.product.price*c.value.count}</td>
-			<td><a href = "/firstshop/deletecart?key=${c.key}">删除一个此类商品</a></td>
 		</tr>
 		</br>
 	</c:forEach>
-	<a href = "products.jsp">返回购物页</a></br>
-	<a href = "/firstshop/buybuybuy">生成订单</a>
+		<h2>商品总价：${sessionScope.money}</h2>
+		<h1><a href = "poor.jsp">结账</a></h1>
 </body>
 </html>

@@ -35,7 +35,7 @@
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="active">Home</a></li>
+						<li><a href="index.jsp" class="active">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Birthday<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-4">
